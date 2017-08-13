@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+
+.container-fluid {
+  min-height: 90vh;
+}
+
+.footer {
+  text-align: center;
+  min-height: 5vh;
+  position: relative;
+  bottom: 0;
+}
