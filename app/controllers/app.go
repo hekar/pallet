@@ -1,10 +1,13 @@
 package controllers
 
 import (
+	"github.com/spf13/viper"
 	"fmt"
 	"net/url"
 	"io/ioutil"
 	"path/filepath"
+	"os"
+	"strings"
 	"github.com/revel/revel"
 )
 
@@ -19,7 +22,7 @@ type FileLink struct {
 }
 
 func (c Application) Index() revel.Result {
-	root := "/home/hekar/github/go"
+	root := strings.Replace(viper.GetString("root"), "$HOME", os.Getenv("HOME"), 1)
 	path := filepath.Join(root, c.Params.Route.Get("path"))
 	
 	files, err := ioutil.ReadDir(path)
